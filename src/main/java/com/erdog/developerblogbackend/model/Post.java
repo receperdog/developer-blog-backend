@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "post")
@@ -25,8 +26,8 @@ public class Post extends BaseModel {
     private String summary;
 
     @ManyToOne
-    @JoinColumn(name = "author_id")
-    private User userId;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(name = "publish_date")
     @Temporal(TemporalType.TIMESTAMP)
@@ -35,4 +36,7 @@ public class Post extends BaseModel {
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private PostStatus status;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Comment> comments;
 }
