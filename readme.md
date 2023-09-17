@@ -1,7 +1,3 @@
-Elbette! İşte sizin için hazırlanmış bir README dosyası:
-
----
-
 # Developer Blog Backend
 
 ## Overview
